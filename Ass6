@@ -1,0 +1,132 @@
+                                   Assignment no 6
+
+Aim -  using R for data preprocessing exploratory,analysis,visualization
+
+# visulization of graph
+
+library(readr)
+
+#read tha csv file
+
+crop_production111 <- read.csv("crop_production111.csv")
+
+View(crop_production111)
+
+#calculate minimum produtcion in datasets 
+
+min_value <- min<- min(cr$Production,na.rm = TRUE)
+
+print(min_value)
+
+#calculate maximum produtcion in datasets 
+
+max_value <-max(cr$Production,na.rm = TRUE)
+
+print(max_value)
+
+#calculate mean of produtcion in datasets
+
+mean_value <- mean(cr$Production,na.rm = TRUE)
+
+print(mean_value)
+
+# to remove the na values and store the mean of that column
+
+crop_production111[is.na(crop_production111)] <-76933
+
+print(crop_production111)
+
+#bar chart
+
+library(ggplot2)
+
+print(crop_production111)
+
+ggplot(data=crop_production111,aes(x=Districts,y=Year,color=as.character(season)))+ geom_bar(stat = "identity")+ggtitle("production  of Districts")+ylab("Production")+xlab("Districts")
+
+#piechart
+
+library(plotrix)
+
+library(MASS)
+
+library(ggplot2)
+
+pie(xtabs(~crop_production111$Districts),main="distribution of dataset",xlab="Districts",col=c("blue","green","red","yellow","pink"))
+
+Output :-
+
+> summary(crop_production111)
+
+         State          Districts        Year              Season   
+
+ Maharashtra:473   AHMEDNAGAR:107   Min.   :2010   Kharif     :318  
+
+                   AKOLA     : 74   1st Qu.:2011   Rabi       :155  
+
+                   AMRAVATI  : 89   Median :2012                    
+
+                   AURANGABAD: 90   Mean   :2012                    
+
+                   BEED      :113   3rd Qu.:2013                    
+
+                                    Max.   :2014                    
+
+                                                                    
+
+           Crop          Area          Production      
+
+ Maize       : 43   Min.   :   100   Min.   :      20  
+
+ Jowar       : 40   1st Qu.:  1000   1st Qu.:     500  
+
+ Sunflower   : 39   Median :  5900   Median :    3700  
+
+ Arhar/Tur   : 25   Mean   : 46877   Mean   :   90503  
+
+ Cotton(lint): 25   3rd Qu.: 56400   3rd Qu.:   53400  
+
+ Gram        : 25   Max.   :540000   Max.   :11516400  
+
+ (Other)     :276                                      
+
+> #calculate minimum produtcion in datasets 
+
+> min_value <- min<- min(cr$Production,na.rm = TRUE)
+
+> print(min_value)
+
+[1] 20
+
+> 
+
+> #calculate maximum produtcion in datasets 
+
+> max_value <-max(cr$Production,na.rm = TRUE)
+
+> print(max_value)
+
+[1] 11516400
+
+> 
+
+> #calculate mean of produtcion in datasets
+
+> mean_value <- mean(cr$Production,na.rm = TRUE)
+
+> print(mean_value)
+
+[1] 90503.17
+
+> 
+
+> # to remove the na values and store the mean of that column
+
+> crop_production111[is.na(crop_production111)] <-76933
+
+> print(crop_production111)
+
+ Bar chat 
+
+Pie chart
+
